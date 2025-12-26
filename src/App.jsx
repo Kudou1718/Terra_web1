@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY
 
@@ -16,6 +16,16 @@ function App() {
     actionPoints: { current: 50, max: 50 },
     inventory: ["녹슨 나이프", "물통 (반 정도 차있음)"]
   })
+const messagesEndRef = useRef(null)  // 여기 추가!
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  // 메시지나 로딩 상태 바뀔 때마다 자동 스크롤
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages, loading])
 
   const WORLD_MIN = 1
   const WORLD_MAX = 100
@@ -165,6 +175,8 @@ function App() {
           </p>
         ))}
         {loading && <p style={{ color: '#ff6600' }}>GM이 세계를 생성 중...</p>}
+        {/* 자동 스크롤을 위한 빈 div */}
+        <div ref={messagesEndRef} />
       </div>
 
       {/* 탐색 모드: 방향 버튼 표시 */}
