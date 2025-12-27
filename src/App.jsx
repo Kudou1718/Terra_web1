@@ -118,8 +118,8 @@ function App() {
       <div className={styles.top2}><PlayerStatusBar playerStatus={playerStatus} /></div>
 
       <div className={styles.left}>
-        <ActionButtons
-          toggleExplore={() => setShowDirections(prev => !prev)}
+       <ActionButtons
+         toggleExplore={() => setShowDirections(prev => !prev)}
           rest={() => setPlayerStatus(prev => ({
             ...prev,
             actionPoints: {
@@ -132,6 +132,7 @@ function App() {
           playerStatus={playerStatus}
         />
 
+        {/* 탐색 방향 표시 */}
         {showDirections && !inBattle && (
           <ExploreDirections
             directions={directions}
@@ -139,6 +140,22 @@ function App() {
             setShowDirections={setShowDirections}
             loading={loading}
           />
+        )}
+        {/* 전투 중일 때 돌아가기 버튼 표시 */}
+        {inBattle && (
+          <button
+            onClick={endBattle}
+            style={{
+              marginTop: "20px",
+              padding: "10px 20px",
+              background: "#550000",
+              color: "#fff",
+              border: "1px solid #f00",
+              borderRadius: "4px"
+            }}
+          >
+            돌아가기
+          </button>
         )}
       </div>
 
