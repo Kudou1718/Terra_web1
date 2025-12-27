@@ -1,0 +1,22 @@
+.battle {
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  border: 2px solid #f00;
+  border-radius: 8px;
+}
+.log {
+  margin-top: 10px;
+  max-height: 40vh;
+  overflow-y: auto;
+  background: #111;
+  padding: 10px;
+}
+.endBtn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #550000;
+  color: #fff;
+  border: 1px solid #f00;
+  border-radius: 4px;
+}
