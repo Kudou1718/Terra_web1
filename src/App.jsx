@@ -25,9 +25,16 @@ function App() {
   // 전투 상태
   const [inBattle, setInBattle] = useState(false)
   const [battleLog, setBattleLog] = useState([])
-  const [enemy, setEnemy] = useState(null)
+
+  // enemy 기본 객체 추가
+  const [enemy, setEnemy] = useState({
+    name: "야생 돌연변이",
+    hp: 50,
+    maxHp: 50
+  })
 
   const WORLD_MIN = 1, WORLD_MAX = 100
+  const messagesEndRef = useRef(null)
 
   // 탐색 시 적 조우 확률
   const moveDirection = (dir) => {
@@ -56,7 +63,7 @@ function App() {
 
   // 전투 시작
   const startBattle = () => {
-    const newEnemy = { hp: 50, maxHp: 50 }
+    const newEnemy = { name: "야생 돌연변이", hp: 50, maxHp: 50 }
     setEnemy(newEnemy)
     setInBattle(true)
 
@@ -65,7 +72,7 @@ function App() {
     let playerHp = playerStatus.hp
     let enemyHp = newEnemy.hp
 
-    while (playerHp > 0 && enemyHp > 0) {
+    while (playerHp > 0 && enemyHp > 0 && turn < 50) {
       const playerDmg = Math.floor(Math.random() * 6) + 5 // 5~10
       const enemyDmg = Math.floor(Math.random() * 6) + 5 // 5~10
 
@@ -88,14 +95,14 @@ function App() {
 
     setBattleLog(logs)
     setPlayerStatus(prev => ({ ...prev, hp: playerHp }))
-    setEnemy({ hp: enemyHp, maxHp: newEnemy.maxHp })
+    setEnemy({ ...newEnemy, hp: enemyHp })
   }
 
   // 전투 종료
   const endBattle = () => {
     setInBattle(false)
     setBattleLog([])
-    setEnemy(null)
+    setEnemy({ name: "야생 돌연변이", hp: 50, maxHp: 50 }) // 기본 enemy로 리셋
     setMessages(prev => [...prev, { role: "assistant", content: "전투가 끝났다. 다시 탐색할 수 있다." }])
   }
 
@@ -136,7 +143,7 @@ function App() {
       </div>
 
       <div className={styles.center}>
-        {inBattle ? (
+        {inBattle && enemy ? (
           <BattleSystem
             player={playerStatus}
             enemy={enemy}
@@ -144,7 +151,7 @@ function App() {
             onEnd={endBattle}
           />
         ) : (
-          <MessageWindow messages={messages} loading={loading} messagesEndRef={useRef(null)} />
+          <MessageWindow messages={messages} loading={loading} messagesEndRef={messagesEndRef} />
         )}
       </div>
 
