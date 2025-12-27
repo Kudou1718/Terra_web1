@@ -1,0 +1,29 @@
+.container {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  background: #112200;
+  border: 1px dashed #0f0;
+  border-radius: 8px;
+}
+.title {
+  width: 100%;
+  color: #ff8800;
+}
+.button {
+  padding: 10px 16px;
+  background: #003300;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.cancel {
+  padding: 10px 16px;
+  background: #330000;
+  color: #f88;
+  border: 1px solid #f88;
+  border-radius: 4px;
+}

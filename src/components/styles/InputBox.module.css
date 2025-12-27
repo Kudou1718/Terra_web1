@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+}
+.input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  background: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+}
+.button {
+  padding: 12px 20px;
+  background: #003300;
+  color: #0f0;
+  border: 1px solid #0f0;
+  font-size: 16px;
+}

@@ -1,0 +1,16 @@
+.statusBar {
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #0f0;
+}
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.inventory {
+  margin-top: 8px;
+}
