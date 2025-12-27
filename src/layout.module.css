@@ -50,5 +50,21 @@
   padding: 10px;
   gap: 12px; /* 버튼과 방향 선택 UI 간격 */
 }
-.center { grid-area: center; background: #555; }
+.center {
+  grid-area: center;
+  background: #555;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* grid에서 이미 60vh로 잡힘 */
+  overflow: hidden; /* 전체는 넘치지 않게 */
+}
+.battleLog {
+  flex: 1;
+  overflow-y: auto; /* 로그가 길어지면 스크롤 */
+  padding: 10px;
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+}
+
 .right { grid-area: right; background: #666; }
