@@ -4,6 +4,7 @@
   border-radius: 8px;
   margin-bottom: 20px;
   border: 1px solid #0f0;
+  color: #fff; /* 글자색 흰색으로 변경 */
 }
 .topRow {
   display: flex;

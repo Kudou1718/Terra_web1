@@ -108,50 +108,53 @@ function App() {
   if (playerStatus.position.x > WORLD_MIN) directions.push('서')
 
   return (
-    <div className={styles.layout}>
-      <div className={styles.top1}>
-        <h3>🌆 NeoTerra RPG</h3>
-      </div>
+  <div className={styles.layout}>
+    <div className={styles.farLeft}></div>
 
-      <div className={styles.top2}>
-        <PlayerStatusBar playerStatus={playerStatus} />
-      </div>
-
-      <div className={styles.left}>
-        <ActionButtons
-          toggleExplore={toggleExplore}
-          rest={rest}
-          sendMessage={sendMessage}
-          loading={loading}
-          playerStatus={playerStatus}
-        />
-      </div>
-
-      <div className={styles.center}>
-        <MessageWindow messages={messages} loading={loading} messagesEndRef={messagesEndRef} />
-        {showDirections && (
-          <ExploreDirections
-            directions={directions}
-            moveDirection={moveDirection}
-            setShowDirections={setShowDirections}
-            loading={loading}
-          />
-        )}
-      </div>
-
-      <div className={styles.right}>
-        <InputBox
-          input={input}
-          setInput={setInput}
-          sendMessage={sendMessage}
-          loading={loading}
-        />
-      </div>
-
-      <div className={styles.bottom}>
-        <p>하단 HUD / 로그 영역</p>
-      </div>
+    <div className={styles.top1}>
+      <h3>🌆 NeoTerra RPG</h3>
     </div>
+
+    <div className={styles.top2}>
+      <PlayerStatusBar playerStatus={playerStatus} />
+    </div>
+
+    <div className={styles.left}>
+      <ActionButtons
+        toggleExplore={toggleExplore}
+        rest={rest}
+        sendMessage={sendMessage}
+        loading={loading}
+        playerStatus={playerStatus}
+      />
+    </div>
+
+    <div className={styles.center}>
+      <MessageWindow messages={messages} loading={loading} messagesEndRef={messagesEndRef} />
+      {showDirections && (
+        <ExploreDirections
+          directions={directions}
+          moveDirection={moveDirection}
+          setShowDirections={setShowDirections}
+          loading={loading}
+        />
+      )}
+      {/* 입력창을 중1 영역으로 이동 */}
+      <InputBox
+        input={input}
+        setInput={setInput}
+        sendMessage={sendMessage}
+        loading={loading}
+      />
+    </div>
+
+    <div className={styles.right}></div>
+    <div className={styles.farRight}></div>
+
+    <div className={styles.bottom}>
+      <p>하단 HUD / 로그 영역</p>
+    </div>
+  </div>
   )
 }
 
