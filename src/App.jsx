@@ -126,15 +126,16 @@ function App() {
         loading={loading}
         playerStatus={playerStatus}
       />
-     {/* 탐색 눌렀을 때 좌1 아래쪽에 표시 */}
-     {showDirections && (
-      <ExploreDirections
-        directions={directions}
-        moveDirection={moveDirection}
-        setShowDirections={setShowDirections}
-        loading={loading}
-      />
-     )}
+      
+      {/* 탐색 눌렀을 때 좌1 아래쪽에 표시 */}
+      {showDirections && (
+        <ExploreDirections
+         directions={directions}
+         moveDirection={moveDirection}
+         setShowDirections={setShowDirections}
+         loading={loading}
+        />
+      )}
     </div>
 
     <div className={styles.center}>
