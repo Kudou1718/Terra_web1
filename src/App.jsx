@@ -4,7 +4,6 @@ import PlayerStatusBar from './components/PlayerStatusBar'
 import MessageWindow from './components/MessageWindow'
 import ExploreDirections from './components/ExploreDirections'
 import ActionButtons from './components/ActionButtons'
-import InputBox from './components/InputBox'
 
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY
 
@@ -127,25 +126,19 @@ function App() {
         loading={loading}
         playerStatus={playerStatus}
       />
+     {/* 탐색 눌렀을 때 좌1 아래쪽에 표시 */}
+     {showDirections && (
+      <ExploreDirections
+        directions={directions}
+        moveDirection={moveDirection}
+        setShowDirections={setShowDirections}
+        loading={loading}
+      />
+     )}
     </div>
 
     <div className={styles.center}>
       <MessageWindow messages={messages} loading={loading} messagesEndRef={messagesEndRef} />
-      {showDirections && (
-        <ExploreDirections
-          directions={directions}
-          moveDirection={moveDirection}
-          setShowDirections={setShowDirections}
-          loading={loading}
-        />
-      )}
-      {/* 입력창을 중1 영역으로 이동 */}
-      <InputBox
-        input={input}
-        setInput={setInput}
-        sendMessage={sendMessage}
-        loading={loading}
-      />
     </div>
 
     <div className={styles.right}></div>
