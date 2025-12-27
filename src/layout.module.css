@@ -1,6 +1,6 @@
 .layout {
   display: grid;
-  grid-template-columns: 10vw 20vw 60vw 20vw 10vw; /* 최좌단, 좌1, 중1, 우1, 최우단 */
+  grid-template-columns: 10vw 15vw 50vw 15vw 10vw; /* 최좌단, 좌1, 중1, 우1, 최우단 */
   grid-template-rows: 5vh 15vh 60vh 20vh;          /* 상단1, 상단2, 중간, 하단1 */
   grid-template-areas:
     "farLeft top1 top1 top1 farRight"
@@ -11,11 +11,35 @@
   width: 100vw;
 }
 
+/* 최좌단 / 최우단 */
 .farLeft { grid-area: farLeft; background: #111; }
 .farRight { grid-area: farRight; background: #111; }
-.top1 { grid-area: top1; background: #222; color: #fff; display:flex; align-items:center; justify-content:center; }
-.top2 { grid-area: top2; background: #333; }
+
+/* 상단1, 상단2, 하단1 → 폭 80vw */
+.top1 { 
+  grid-area: top1; 
+  background: #222; 
+  color: #fff; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  width:80vw; 
+  margin:0 auto; 
+}
+.top2 { 
+  grid-area: top2; 
+  background: #333; 
+  width:80vw; 
+  margin:0 auto; 
+}
+.bottom { 
+  grid-area: bottom; 
+  background: #777; 
+  width:80vw; 
+  margin:0 auto; 
+}
+
+/* 좌1, 중1, 우1 */
 .left { grid-area: left; background: #444; }
 .center { grid-area: center; background: #555; }
 .right { grid-area: right; background: #666; }
-.bottom { grid-area: bottom; background: #777; }
